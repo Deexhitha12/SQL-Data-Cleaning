@@ -1,0 +1,15 @@
+Standardized Date Formats: Converted the SaleDate column into a consistent DATE format for improved analysis and reporting.
+
+Populated Missing Property Addresses: Updated null values in the PropertyAddress column by matching ParcelID values with existing records using ISNULL and JOIN.
+
+Split Address Columns:
+
+Extracted PropertySplitAddress and PropertyAddressCity from the PropertyAddress column using SUBSTRING.
+Extracted OwnerSplitAddress, OwnerCity, and OwnerState from the OwnerAddress column using the PARSENAME function.
+Standardized Boolean Columns: Replaced Y/N values in the SoldAsVacant column with Yes/No for better readability and consistency.
+
+Removed Duplicate Records: Used a CTE with the ROW_NUMBER() window function to identify and delete duplicate rows based on columns like ParcelID, SalePrice, and SaleDate.
+
+Dropped Unnecessary Columns: Deleted redundant columns (TaxDistrict, BuildingValue, OwnerAddress, and PropertyAddress) to improve query performance and storage efficiency.
+
+Analyzed and Grouped Data: Performed grouping and aggregation operations (e.g., distinct counts of SoldAsVacant values) to identify patterns and inconsistencies in the dataset.
